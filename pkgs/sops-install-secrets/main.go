@@ -378,7 +378,7 @@ func decryptSecret(s *secret, sourceFiles map[string]plainData) error {
 			if err != nil {
 				return fmt.Errorf("secret %s in %s is not valid: %w", s.Name, s.SopsFile, err)
 			}
-			s.value = []byte(strVal)
+			s.value = []byte(fmt.Sprintf("%s\n", strVal))
 		}
 	}
 	sourceFiles[s.SopsFile] = sourceFile
